@@ -2,7 +2,7 @@
 FROM node:22-alpine AS ui-builder
 WORKDIR /ui
 COPY ui/package*.json ./
-RUN npm ci
+RUN npm install --prefer-offline
 COPY ui/ ./
 RUN npm run build
 
