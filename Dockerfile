@@ -1,13 +1,13 @@
 # Stage 1 — Build the React UI
-FROM node:22-alpine AS ui-builder
+FROM node:22-slim AS ui-builder
 WORKDIR /ui
 COPY ui/package*.json ./
-RUN npm install --prefer-offline
+RUN npm install
 COPY ui/ ./
 RUN npm run build
 
 # Stage 2 — Runtime
-FROM node:22-alpine
+FROM node:22-slim
 WORKDIR /app
 COPY package*.json ./
 RUN npm ci --omit=dev
