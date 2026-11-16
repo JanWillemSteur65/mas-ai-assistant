@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mas-assistant
+  namespace: mas-salmai-assistant
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mas-assistant
+  template:
+    metadata:
+      labels:
+        app: mas-assistant
+    spec:
+      containers:
+        - name: mas-assistant
+          image: image-registry.openshift-image-registry.svc:5000/mas-salmai-assistant/mas-assistant:latest
+          ports:
+            - containerPort: 3737
+          envFrom:
+            - secretRef:
+                name: mas-assistant-secret
+          volumeMounts:
+            - name: data
+              mountPath: /app/data
+          readinessProbe:
+            httpGet:
+              path: /api/settings
+              port: 3737
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /api/settings
+              port: 3737
+            initialDelaySeconds: 15
+            periodSeconds: 30
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "100m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: mas-assistant-pvc

@@ -1,5 +1,5 @@
 'use strict';
-require('dotenv').config({ path: __dirname + '/.env' });
+require('dotenv').config({ path: process.env.ENV_PATH || __dirname + '/.env' });
 
 const express = require('express');
 const fetch   = require('node-fetch');
@@ -24,7 +24,7 @@ let MAP_LNG     = process.env.MAP_LNG     || '';
 
 // Helper: rewrite a single key=value line in .env file
 function updateEnv(key, value) {
-  const envPath = __dirname + '/.env';
+  const envPath = process.env.ENV_PATH || __dirname + '/.env';
   let src = '';
   try { src = fs.readFileSync(envPath, 'utf8'); } catch (_) { src = ''; }
   const escaped = value.replace(/\n/g, '\\n');

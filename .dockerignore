@@ -1,0 +1,13 @@
+.git
+.DS_Store
+.env
+*.log
+server.log
+node_modules
+ui/node_modules
+ui/dist
+docs/
+openshift/
+openshift-deployment-plan.md
+SKILL.md
+setup.sh

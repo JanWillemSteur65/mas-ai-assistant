@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mas-assistant
+  namespace: mas-salmai-assistant
+spec:
+  selector:
+    app: mas-assistant
+  ports:
+    - port: 80
+      targetPort: 3737

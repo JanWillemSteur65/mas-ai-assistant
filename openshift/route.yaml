@@ -1,0 +1,14 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: mas-assistant
+  namespace: mas-salmai-assistant
+spec:
+  to:
+    kind: Service
+    name: mas-assistant
+  port:
+    targetPort: 3737
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
