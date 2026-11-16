@@ -89,7 +89,7 @@ test -d ~/.bob/skills/mas-ai-assistant/ui/dist && echo "UI_BUILT" || echo "UI_MI
 **If `SERVER_MISSING`:** The skill files are missing. Tell the user to clone the repository first:
 
 ```bash
-git clone https://github.com/janwillemsteur/mas-ai-assistant ~/.bob/skills/mas-ai-assistant
+git clone https://github.com/JanWillemSteur65/mas-ai-assistant ~/.bob/skills/mas-ai-assistant
 ```
 
 Then re-trigger this skill. Stop here.

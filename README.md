@@ -33,7 +33,7 @@ A local IBM Maximo AI assistant with a Carbon React UI and an agentic AI chat pa
 ### 1. Clone into the Bob global skills directory
 
 ```bash
-git clone https://github.com/janwillemsteur/mas-ai-assistant ~/.bob/skills/mas-ai-assistant
+git clone https://github.com/JanWillemSteur65/mas-ai-assistant ~/.bob/skills/mas-ai-assistant
 ```
 
 ### 2. Run the bootstrap script
