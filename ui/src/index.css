@@ -1,0 +1,30 @@
+/* IBM Carbon — theme-aware base */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --blue: #78a9ff;
+  --blue-hover: #a6c8ff;
+  --green: #42be65;
+  --yellow: #f1c21b;
+  --red: #fa4d56;
+  --teal: #3ddbd9;
+  --purple: #be95ff;
+  --orange: #ff832b;
+}
+
+html, body, #root {
+  height: 100%;
+  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* background and color come from Carbon theme tokens — do NOT hardcode */
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+
+/* Utility */
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }

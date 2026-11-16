@@ -1,0 +1,25 @@
+// IBM Carbon v11 — dual theme (g10 light + g100 dark)
+// config MUST be @used before all other modules that transitively load it.
+@use '@carbon/styles/scss/config' with (
+  $prefix: 'cds'
+);
+@use '@carbon/styles/scss/reset';
+@use '@carbon/styles/scss/themes';
+@use '@carbon/styles/scss/theme';
+@use '@carbon/styles/scss/components';
+@use '@carbon/styles/scss/grid';
+@use '@carbon/styles/scss/spacing';
+@use '@carbon/styles/scss/motion';
+@use '@carbon/styles/scss/type';
+@use '@carbon/styles/scss/utilities';
+
+// Default (dark, g100) — set via data-carbon-theme on <html> so toggling wins.
+// Using the attribute selector as default avoids :root specificity battles.
+html, [data-carbon-theme='g100'] {
+  @include theme.theme(themes.$g100);
+}
+
+// Light zone — any element with data-carbon-theme="g10"
+[data-carbon-theme='g10'] {
+  @include theme.theme(themes.$g10);
+}
